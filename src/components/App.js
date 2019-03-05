@@ -12,7 +12,7 @@ const todos = [
   {
     id:2,
     text:'text2',
-    completed : true
+    completed : false
   },
   {
     id:3,
