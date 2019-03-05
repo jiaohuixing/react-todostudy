@@ -7,7 +7,7 @@ const todos = [
   {
     id:1,
     text:'text1',
-    completed : true
+    completed : false
   },
   {
     id:2,
