@@ -7,7 +7,7 @@ const todos = [
   {
     id:1,
     text:'text1',
-    completed : false
+    completed : true
   },
   {
     id:2,
@@ -20,9 +20,30 @@ const todos = [
     completed : false
   },
 ]
-const filter = 'all';
+
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      todos : todos,
+      filter : 'all'
+    }
+  }
+  getVisibleToDos = ()=>{
+    const currentFilter = this.state.filter;
+    return this.state.todos.filter(todo=>{
+      if (currentFilter === 'active'){
+        return !todo.completed
+      }else if(currentFilter === 'completed'){
+        return todo.completed
+      }else{
+        return true
+      }
+    })
+  }
   render() {
+    const todos = this.getVisibleToDos();
+    const {filter} = this.props;
     return (
       <div>
         <AddToDo />
@@ -31,6 +52,8 @@ class App extends Component {
       </div>
     );
   }
+
+
 }
 
 export default App;

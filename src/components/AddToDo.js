@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 
 class AddToDo extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            text : ''
+        }
+    }
     render() {
         return (
             <div>
-                <input />
+                <input value={this.state.text}/>
                 <button>Add</button>
             </div>
             
