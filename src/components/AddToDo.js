@@ -10,11 +10,19 @@ class AddToDo extends Component {
     render() {
         return (
             <div>
-                <input value={this.state.text}/>
-                <button>Add</button>
+                <input value={this.state.text} onChange={this.handleOnChange}/>
+                <button onClick={this.handleClick}>Add</button>
             </div>
             
         );
+    }
+    handleOnChange=(e)=>{
+        this.setState({
+            text : e.target.value
+        })
+    }
+    handleClick=()=>{
+        this.props.addToDo(this.state.text);
     }
 }
 
