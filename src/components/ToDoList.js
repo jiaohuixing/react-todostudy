@@ -3,12 +3,12 @@ import ToDo from './ToDo';
 
 class ToDoList extends Component {
   render() {
-    const { todos } = this.props;
+    const { todos,toggleTodo} = this.props;
     return (
       <ul>
         {
             todos.map(todo=> {
-              return  <ToDo id={todo.id} {...todo} />
+              return  <ToDo id={todo.id} {...todo} onClick = {()=>{toggleTodo(todo.id)}}/>
             })
         }
       </ul>

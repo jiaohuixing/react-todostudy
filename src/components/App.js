@@ -48,8 +48,8 @@ class App extends Component {
     return (
       <div>
         <AddToDo addToDo={this.addToDo}/>
-        <ToDoList todos={todos}/>
-        <Footer filter={filter} />
+        <ToDoList todos={todos} toggleTodo={this.toggleTodo}/>
+        <Footer filter={filter} setVisibilityFilter = {this.setVisibilityFilter}/>
       </div>
     );
   }
@@ -68,7 +68,18 @@ class App extends Component {
   }
 
   toggleTodo = (id)=>{
-    
+    const newTodos =  this.state.todos.map(item =>{
+      return item.id === id?{...item,completed:!item.completed}:item
+    })
+    this.setState({
+      todos : newTodos
+    })
+  }
+
+  setVisibilityFilter = (filter)=>{
+    this.setState({
+      filter
+    })
   }
 }
 
